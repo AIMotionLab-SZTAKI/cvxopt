@@ -661,8 +661,8 @@ def socp(c, Gl=None, hl=None, Gq=None, hq=None, taskfile=None, **kwargs):
             else:
                 zl = matrix(0.0, (0,1))
 
-    if (solsta is mosek.solsta.unknown):
-        return (solsta, None, None, None)
+    if solsta is mosek.solsta.unknown:
+        return (solsta, x, zl, zq)  # return the solution anyway
     else:
         return (solsta, x, zl, zq)
 
